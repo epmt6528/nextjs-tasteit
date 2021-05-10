@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app'
-import Link from 'next/link'
+import Header from '../components/Head'
 import '../styles/sanitize.css'
-import '../styles/globals.css'
+import { ThemeProvider } from '@material-ui/core/styles'
+import { muiTheme, GlobalStyles } from '../styles/ThemeConfig'
 
 import Amplify from 'aws-amplify'
 import config from '../aws-exports'
@@ -12,13 +13,11 @@ Amplify.configure({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div>
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/profile">Profile</Link>
-      </nav>
+    <ThemeProvider theme={muiTheme}>
+      <Header />
+      <GlobalStyles />
       <Component {...pageProps} />
-    </div>
+    </ThemeProvider>
   )
 }
 

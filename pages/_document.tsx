@@ -1,29 +1,29 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import Document from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
-const siteTitle = 'Taste it'
-const siteDescription =
-  'Discover your next favourite food and expand your taste horizons through mystery dishes, customized just for you.'
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
 
-export default class Document extends NextDocument {
-  render() {
-    return (
-      <Html>
-        <Head>
-          <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
-          <link rel="manifest" href="/favicons/site.webmanifest" />
-          <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff" />
-          <meta name="description" content={siteDescription} />
-          <meta name="og:title" content={siteTitle} />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      sheet.seal()
+    }
   }
 }
