@@ -5,25 +5,25 @@ import { DIV } from './TopStyled'
 const Top = () => {
   return (
     <DIV>
-      <div className='heroImgDiv'>
+      <div className="heroImgDiv">
         <Image
-          src='/img/ForHome/hero.png'
-          alt='Tasty hamburger with fries and drink'
+          src="/img/ForHome/hero.png"
+          alt="Tasty hamburger with fries and drink"
           width={359}
           height={308}
-          className='heroImage'
+          className="heroImage"
         />
       </div>
 
-      <duv className='textDiv'>
+      <div className="textDiv">
         <h1>Exciting Food Tailored To Your Taste.</h1>
         <p>
-          Discover your next favourite food and expand your taste horizons
-          through mystery dishes, customized just for you.
+          Discover your next favourite food and expand your taste horizons through mystery dishes, customized just for
+          you.
         </p>
-      </duv>
+      </div>
 
-      <a href='login'>
+      <a href="login">
         <button>Start Now</button>
       </a>
     </DIV>
