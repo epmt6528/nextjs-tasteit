@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "pressboxpoolsb6bec4ec": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
