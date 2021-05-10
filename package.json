@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "npm run build && next export",
-    "lint-fix": "eslint --fix './pages/**/*.{js,tsx}' && prettier --write './pages/**/*.{js,tsx}'"
+    "export": "npm run build && next export"
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^1.1.0",

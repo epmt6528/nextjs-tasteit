@@ -1,6 +1,6 @@
 {
   "auth": {
-    "tasteit33d7e4fe": {
+    "tasteit39b818dc": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

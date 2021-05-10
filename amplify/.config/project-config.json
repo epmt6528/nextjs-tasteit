@@ -5,9 +5,9 @@
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": "pages",
-      "DistributionDir": "out",
-      "BuildCommand": "npm run export",
+      "SourceDir": ".",
+      "DistributionDir": "build",
+      "BuildCommand": "npm run-script build",
       "StartCommand": "npm run-script start"
     }
   },

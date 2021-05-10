@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-tasteit-dev-112414-authRole",
-      "UnauthRoleArn": "arn:aws:iam::480880657118:role/amplify-tasteit-dev-112414-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::480880657118:role/amplify-tasteit-dev-112414-authRole",
+      "AuthRoleName": "amplify-tasteit-dev-115357-authRole",
+      "UnauthRoleArn": "arn:aws:iam::480880657118:role/amplify-tasteit-dev-115357-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::480880657118:role/amplify-tasteit-dev-115357-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-tasteit-dev-112414-deployment",
-      "UnauthRoleName": "amplify-tasteit-dev-112414-unauthRole",
-      "StackName": "amplify-tasteit-dev-112414",
-      "StackId": "arn:aws:cloudformation:us-east-1:480880657118:stack/amplify-tasteit-dev-112414/ee443eb0-b1bc-11eb-862d-0a87c278b5b5",
-      "AmplifyAppId": "d2sparn38lmoll"
+      "DeploymentBucketName": "amplify-tasteit-dev-115357-deployment",
+      "UnauthRoleName": "amplify-tasteit-dev-115357-unauthRole",
+      "StackName": "amplify-tasteit-dev-115357",
+      "StackId": "arn:aws:cloudformation:us-east-1:480880657118:stack/amplify-tasteit-dev-115357/15236de0-b1c1-11eb-922e-0ef3bde46503",
+      "AmplifyAppId": "ddb7l1ro59fq4"
     },
     "categories": {
       "auth": {
-        "tasteit33d7e4fe": {}
+        "tasteit39b818dc": {}
       }
     }
   }
