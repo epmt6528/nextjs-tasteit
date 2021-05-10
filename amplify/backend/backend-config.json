@@ -1,6 +1,6 @@
 {
   "auth": {
-    "pressboxpoolsb6bec4ec": {
+    "tasteit33d7e4fe": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

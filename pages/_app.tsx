@@ -16,7 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <nav>
         <Link href="/">Home</Link>
         <Link href="/profile">Profile</Link>
-        <Link href="/protected">Protected</Link>
       </nav>
       <Component {...pageProps} />
     </div>

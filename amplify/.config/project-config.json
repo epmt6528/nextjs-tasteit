@@ -1,13 +1,13 @@
 {
-  "projectName": "pressboxpools",
+  "projectName": "tasteIt",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": ".",
-      "DistributionDir": "build",
-      "BuildCommand": "npm run-script build",
+      "SourceDir": "pages",
+      "DistributionDir": "out",
+      "BuildCommand": "npm run export",
       "StartCommand": "npm run-script start"
     }
   },
