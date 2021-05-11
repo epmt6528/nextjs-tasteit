@@ -5,11 +5,6 @@ export default function Home() {
     <div>
       <Header />
       <Top />
-      {/* <HowItWorks />
-      <Features />
-      <Team />
-      <Proposal />
-      <Footer /> */}
     </div>
   )
 }
