@@ -2,17 +2,12 @@ import Image from 'next/image'
 
 import { DIV } from './TopStyled'
 
-const myLoader = ({ src, width, quality }) => {
-  return `https://res.cloudinary.com/tasteit/image/upload/v1620748191/HomeGraphics/${src}?w=${width}&q=${quality || 75}`
-}
-
 const Top = () => {
   return (
     <DIV>
       <div className="heroImgDiv">
         <Image
-          loader={myLoader}
-          src="/hero_teptw2.png"
+          src="/v1620748191/HomeGraphics/hero_teptw2.png"
           alt="Tasty hamburger with fries and drink"
           width={359}
           height={308}
