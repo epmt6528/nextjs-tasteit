@@ -16,7 +16,6 @@ const Top = () => {
       </div>
 
       <div className="textDiv">
-        <h1>Exciting Food Tailored To Your Taste.</h1>
         <p>
           Discover your next favourite food and expand your taste horizons through mystery dishes, customized just for
           you.
