@@ -6,13 +6,7 @@ const Features = () => {
   return (
     <DIV>
       <div className="imgDiv">
-        {/* <Image
-          src='/img/ForHome/lobster.png'
-          alt='A dish of lobster'
-          width={342}
-          height={487}
-        /> */}
-        <img src="/img/ForHome/lobster.png" alt="A dish of lobster" width={342} height={487} />
+        <Image src="/v1620748193/HomeGraphics/lobster_rhon1u.png" alt="A dish of lobster" width={342} height={487} />
       </div>
 
       <div className="textDiv" id="features">
@@ -23,12 +17,12 @@ const Features = () => {
       <div className="featureDiv">
         <ul>
           <li>
-            <Image src="/img/ForHome/tomatoSoup.png" alt="Tomato Soup" width={110} height={110} />
+            <Image src="/v1620748190/HomeGraphics/tomatoSoup_jndl63.png" alt="Tomato Soup" width={110} height={110} />
             <h3>Customize your menu</h3>
             <p>Easily and quickly add, edit and remove your restaurant’s dishes.</p>
           </li>
           <li>
-            <Image src="/img/ForHome/sushi.png" alt="Tuna nigiri" width={110} height={110} />
+            <Image src="/v1620748189/HomeGraphics/sushi_htsuk3.png" alt="Tuna nigiri" width={110} height={110} />
             <h3>Update your order status</h3>
             <p>Keep your customers informed with order status updates.</p>
           </li>
