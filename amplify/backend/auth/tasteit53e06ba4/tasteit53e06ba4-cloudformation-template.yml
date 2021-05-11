@@ -114,6 +114,10 @@ Parameters:
   
             
         
+  usernameAttributes:
+    Type: CommaDelimitedList
+      
+        
   userPoolGroupList:
     Type: CommaDelimitedList
       
@@ -144,7 +148,7 @@ Resources:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'tastei39b818dc_sns-role', !Join ['',[ 'sns', '39b818dc', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'tastei53e06ba4_sns-role', !Join ['',[ 'sns', '53e06ba4', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -156,10 +160,10 @@ Resources:
               - "sts:AssumeRole"
             Condition:
               StringEquals:
-                sts:ExternalId: tastei39b818dc_role_external_id
+                sts:ExternalId: tastei53e06ba4_role_external_id
       Policies:
         -
-          PolicyName: tastei39b818dc-sns-policy
+          PolicyName: tastei53e06ba4-sns-policy
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -205,12 +209,14 @@ Resources:
           RequireSymbols: false
           RequireUppercase: false
       
+      UsernameAttributes: !Ref usernameAttributes
+      
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
       SmsAuthenticationMessage: !Ref smsAuthenticationMessage
       SmsConfiguration:
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: tastei39b818dc_role_external_id
+        ExternalId: tastei53e06ba4_role_external_id
     
   
   UserPoolClientWeb:
@@ -218,7 +224,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: tastei39b818dc_app_clientWeb
+      ClientName: tastei53e06ba4_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -228,7 +234,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: tastei39b818dc_app_client
+      ClientName: tastei53e06ba4_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -239,7 +245,7 @@ Resources:
   # Created to execute Lambda which gets userpool app client config values
     Type: 'AWS::IAM::Role'
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '39b818dc', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '53e06ba4', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -293,7 +299,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: tastei39b818dc_userpoolclient_lambda_iam_policy
+      PolicyName: tastei53e06ba4_userpoolclient_lambda_iam_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -310,7 +316,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: tastei39b818dc_userpoolclient_lambda_log_policy
+      PolicyName: tastei53e06ba4_userpoolclient_lambda_log_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -350,7 +356,7 @@ Resources:
   # Always created
     Type: AWS::Cognito::IdentityPool
     Properties:
-      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'tasteit39b818dc_identitypool_39b818dc', !Join ['',['tasteit39b818dc_identitypool_39b818dc', '__', !Ref env]]]
+      IdentityPoolName: !If [ShouldNotCreateEnvResources, 'tasteit53e06ba4_identitypool_53e06ba4', !Join ['',['tasteit53e06ba4_identitypool_53e06ba4', '__', !Ref env]]]
       
       CognitoIdentityProviders:
         - ClientId:  !Ref UserPoolClient

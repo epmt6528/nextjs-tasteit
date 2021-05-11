@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "tasteit39b818dc_identitypool_39b818dc",
+    "identityPoolName": "tasteit53e06ba4_identitypool_53e06ba4",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "tastei39b818dc",
-    "userPoolName": "tasteit39b818dc_userpool_39b818dc",
+    "resourceNameTruncated": "tastei53e06ba4",
+    "userPoolName": "tasteit53e06ba4_userpool_53e06ba4",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "tastei39b818dc_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "tastei53e06ba4_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "39b818dc",
-    "resourceName": "tasteit39b818dc",
+    "sharedId": "53e06ba4",
+    "resourceName": "tasteit53e06ba4",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -46,6 +46,9 @@
         ]
     },
     "useDefault": "default",
+    "usernameAttributes": [
+        "email"
+    ],
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

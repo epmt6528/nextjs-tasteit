@@ -73,11 +73,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  img {
-    width: 100%;
-    height: auto;
-  }
-
   ul{
     list-style: none;
   }
