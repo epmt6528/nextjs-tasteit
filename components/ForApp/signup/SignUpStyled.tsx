@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { globalValues, colorPallete } from './ThemeConfig'
+import { globalValues } from '../../../styles/ThemeConfig'
 
 export const DIV = styled.div`
   .logoDiv {

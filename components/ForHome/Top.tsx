@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { DIV } from './TopStyled'
 
@@ -23,9 +24,11 @@ const Top = () => {
         </p>
       </div>
 
-      <a href="login">
-        <button>Start Now</button>
-      </a>
+      <Link href="/signin">
+        <a>
+          <button>Start Now</button>
+        </a>
+      </Link>
     </DIV>
   )
 }

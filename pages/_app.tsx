@@ -3,13 +3,11 @@ import Header from '../components/Head'
 import '../styles/sanitize.css'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { muiTheme, GlobalStyles } from '../styles/ThemeConfig'
+import Modal from 'react-modal'
 
-import Amplify from 'aws-amplify'
-import config from '../aws-exports'
-Amplify.configure({
-  ...config,
-  ssr: true,
-})
+import '../configureAmplify'
+
+Modal.setAppElement('#__next')
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

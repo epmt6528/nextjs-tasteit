@@ -22,5 +22,29 @@
         "tasteit53e06ba4": {}
       }
     }
+  },
+  "develop": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tasteit-develop-140045-authRole",
+      "UnauthRoleArn": "arn:aws:iam::480880657118:role/amplify-tasteit-develop-140045-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::480880657118:role/amplify-tasteit-develop-140045-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-tasteit-develop-140045-deployment",
+      "UnauthRoleName": "amplify-tasteit-develop-140045-unauthRole",
+      "StackName": "amplify-tasteit-develop-140045",
+      "StackId": "arn:aws:cloudformation:us-east-1:480880657118:stack/amplify-tasteit-develop-140045/f641bb30-b29b-11eb-893a-0ed2247e0ea9",
+      "AmplifyAppId": "d37gofte92dgps"
+    },
+    "categories": {
+      "auth": {
+        "tasteit53e06ba4": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d37gofte92dgps",
+          "type": "cicd"
+        }
+      }
+    }
   }
 }

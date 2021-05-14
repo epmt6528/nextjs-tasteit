@@ -16,7 +16,7 @@ export default function Header() {
       <meta name="theme-color" content="#ffffff" />
       <meta name="description" content={siteDescription} />
       <meta name="og:title" content={siteTitle} />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
     </Head>
   )

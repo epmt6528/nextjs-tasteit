@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import { DIV } from './HeaderStyled'
 
 const MobileMenu = (props) => {
@@ -12,7 +13,7 @@ const MobileMenu = (props) => {
         <img src="/img/ForHome/close.svg" alt="Close" width="14" height="14" onClick={() => setMenuIsOpen(false)} />
       </div>
 
-      <div className="mobileNavLinks">
+      <nav className="mobileNavLinks">
         <ul>
           <li>
             <a href="#howItWorks" onClick={() => setMenuIsOpen(false)}>
@@ -30,12 +31,14 @@ const MobileMenu = (props) => {
             </a>
           </li>
           <li>
-            <a href="/login" onClick={() => setMenuIsOpen(false)}>
-              <button>For Restaurant</button>
-            </a>
+            <Link href="/signin">
+              <a onClick={() => setMenuIsOpen(false)}>
+                <button>For Restaurant</button>
+              </a>
+            </Link>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div className="mobileNavFooter">
         <p>Made with love remotely from Vancouver, BC.</p>
