@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function Header() {
+const Header = () => {
   const siteTitle = 'Taste it'
   const siteDescription =
     'Discover your next favourite food and expand your taste horizons through mystery dishes, customized just for you.'
@@ -21,3 +21,5 @@ export default function Header() {
     </Head>
   )
 }
+
+export default Header

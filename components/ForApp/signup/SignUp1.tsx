@@ -1,34 +1,11 @@
-import { useState } from 'react'
-
 import Image from 'next/image'
-
-import { DIV } from './SignUpStyled'
-
-// materialUI
-import TextField from '@material-ui/core/TextField'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import OutlinedInput from '@material-ui/core/OutlinedInput'
-import IconButton from '@material-ui/core/IconButton'
-import Visibility from '@material-ui/icons/Visibility'
-import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import { TextField, PasswordTextField, Button } from '../../UIkits'
 
 const SignUp1 = (props) => {
   const { values, handleChange, setPage } = props
 
-  const [showPassword, setShowPassword] = useState(false)
-
-  const handleClickShowPassword = () => {
-    setShowPassword(!showPassword)
-  }
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault()
-  }
-
   return (
-    <DIV className="firstPage">
+    <div className="firstPage">
       <div className="logoDiv">
         <a href="/">
           <img src="/img/ForHome/logoMobile.svg" alt="Taste it" width="37" height="41" />
@@ -49,58 +26,20 @@ const SignUp1 = (props) => {
         </div>
 
         <form>
-          <TextField label="Email" variant="outlined" value={values.email} onChange={handleChange('email')} />
+          <TextField label="Email" value={values.email} handleChange={handleChange('email')} />
 
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <OutlinedInput
-              id="password"
-              type={showPassword ? 'text' : 'password'}
-              value={values.password}
-              onChange={handleChange('password')}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={70}
-            />
-          </FormControl>
+          <PasswordTextField inputLabel="Password" value={values.password} handleChange={handleChange('password')} />
 
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="confirmPassword">Confirm Password</InputLabel>
-            <OutlinedInput
-              id="confirmPassword"
-              type={showPassword ? 'text' : 'password'}
-              value={values.confirmPassword}
-              onChange={handleChange('confirmPassword')}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              labelWidth={70}
-            />
-          </FormControl>
+          <PasswordTextField
+            inputLabel="Confirm Password"
+            value={values.confirmPassword}
+            handleChange={handleChange('confirmPassword')}
+          />
         </form>
 
-        <button onClick={() => setPage(2)}>Next</button>
+        <Button label="Next" onClick={() => setPage(2)} />
       </div>
-    </DIV>
+    </div>
   )
 }
 

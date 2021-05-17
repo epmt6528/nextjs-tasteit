@@ -1,33 +1,35 @@
 import { useRouter } from 'next/router'
-
+import { GetServerSideProps } from 'next'
 import { withSSRContext } from 'aws-amplify'
+import { Auth } from 'aws-amplify'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
-import { signOut } from '../pages/api/authentication'
-
-const Dashboard = ({ restaurantName }) => {
+const Dashboard = () => {
   const router = useRouter()
-  const signOutProcess = () => {
-    signOut().then((res) => {
-      switch (res) {
-        case 'Success':
-          router.push('/signin')
-          break
-        default:
-          alert('There was an error. Try again.')
-      }
-    })
+  const user = useSelector((state: RootState) => state.user.user)
+
+  // Sign Out
+  const signOutProcess = async () => {
+    await Auth.signOut()
+      .then(() => {
+        router.push('/signin')
+      })
+      .catch(() => {
+        alert('There was an error. Try again.')
+      })
   }
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <p>Hi, {restaurantName}</p>
+      <p>Hi, {user.restaurantName}</p>
       <button onClick={signOutProcess}>Sign Out</button>
     </div>
   )
 }
 
-export async function getServerSideProps({ req, res }) {
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const { Auth } = withSSRContext({ req })
 
   try {

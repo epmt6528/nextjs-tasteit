@@ -1,10 +1,8 @@
 import { useState } from 'react'
-// import { Auth } from 'aws-amplify'
 import Image from 'next/image'
 import Link from 'next/link'
-
-import { DIV } from '../styles/loginStyles'
-
+import styled from 'styled-components'
+import { globalValues, colorPallete } from '../styles/ThemeConfig'
 import { SignInForm } from '../components/ForApp/signin'
 
 const Login = () => {
@@ -14,24 +12,14 @@ const Login = () => {
     showPassword: false,
   })
 
-  // const googleOauth = async () => {
-  //   await Auth.federatedSignIn({ provider: 'Google' })
-  //     .then((res) => console.log(res))
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  // }
-
-  // const facebookOauth = () => {
-  //   Auth.federatedSignIn({ provider: 'Facebook' })
-  // }
-
   return (
     <DIV>
       <div className="logoDiv">
-        <a href="/">
-          <img src="/img/ForHome/logoMobile.svg" alt="Taste it" width="37" height="41" />
-        </a>
+        <Link href="/">
+          <a>
+            <img src="/img/ForHome/logoMobile.svg" alt="Taste it" width="37" height="41" />
+          </a>
+        </Link>
       </div>
 
       <Image
@@ -49,10 +37,6 @@ const Login = () => {
 
         <SignInForm values={values} setValues={setValues} />
 
-        {/* Social Sign In */}
-        {/* <button onClick={googleOauth}>Sign in with Google</button>
-        <button onClick={facebookOauth}>Sign in with Facebook</button> */}
-
         <h3 className="signUpCTA">
           Not in partner with Taste It?{' '}
           <Link href="/signup">
@@ -63,5 +47,32 @@ const Login = () => {
     </DIV>
   )
 }
+
+const DIV = styled.div`
+  .logoDiv {
+    position: absolute;
+    top: 20px;
+    left: ${globalValues.edgePaddingMobile};
+    z-index: 1;
+  }
+
+  .bodyDiv {
+    padding: 80px ${globalValues.edgePaddingMobile};
+  }
+
+  form {
+    margin: 24px 0;
+  }
+
+  .signUpCTA {
+    margin: 23px 0;
+
+    a {
+      font-family: 'Nexa Bold';
+      text-decoration: underline;
+      color: ${colorPallete.burple};
+    }
+  }
+`
 
 export default Login

@@ -1,6 +1,7 @@
 import Image from 'next/image'
-
-import { DIV } from './ProposalStyled'
+import styled from 'styled-components'
+import { globalValues, colorPallete } from '../../styles/ThemeConfig'
+import { Button } from '../UIkits'
 
 const Proposal = () => {
   return (
@@ -18,10 +19,23 @@ const Proposal = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button>Download Now</button>
+        <Button label="Download Now" />
       </a>
     </DIV>
   )
 }
+
+const DIV = styled.div`
+  padding: 76px ${globalValues.edgePaddingMobile};
+  background-color: ${colorPallete.lightYellow};
+
+  .textDiv {
+    margin: 73.5px 0 44.5px;
+
+    p {
+      margin-top: 18px;
+    }
+  }
+`
 
 export default Proposal

@@ -1,37 +1,43 @@
 import Image from 'next/image'
-
+import { Auth } from 'aws-amplify'
 import { useState } from 'react'
-import { DIV } from './SignUpStyled'
-
-import signUp from '../../../pages/api/authentication/signUp'
-
-// materialUI
-import TextField from '@material-ui/core/TextField'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import Select from '@material-ui/core/Select'
 import ConfirmSignUpModal from './ConfirmSignUpModal'
+import { TextField, Dropdown, Button } from '../../UIkits'
 
 const SignUp3 = (props) => {
   const { values, handleChange, setPage } = props
-
+  const { email, password, restaurantName, description, province, city, address, postalCode, phoneNumber } = values
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const signUpProcess = async () => {
-    console.log('clicked')
-    await signUp(values)
+    await Auth.signUp({
+      username: email,
+      email: email,
+      password: password,
+      attributes: {
+        'custom:restaurantName': restaurantName,
+        'custom:phoneNumber': 0,
+        'custom:description': description,
+        'custom:province': province,
+        'custom:city': city,
+        'custom:address': address,
+        'custom:postalCode': postalCode,
+        'custom:phone': phoneNumber,
+      },
+    })
       .then(() => {
-        console.log('Success')
         setModalIsOpen(true)
       })
-      .catch(() => {
-        console.log('Fail')
+      .catch((error) => {
+        console.log('Error signing up: ', error)
       })
   }
 
+  const provinces = ['British Columbia', 'Ontario']
+  const cities = ['Vancouver', 'Burnaby']
+
   return (
-    <DIV className="thirdPage">
+    <div className="thirdPage">
       <div className="bodyDiv">
         <div className="textDiv">
           <h1>You are just a few steps away.</h1>
@@ -39,40 +45,22 @@ const SignUp3 = (props) => {
         </div>
 
         <form>
-          <FormControl variant="outlined">
-            <InputLabel id="province">Province</InputLabel>
-            <Select
-              labelId="province"
-              id="province"
-              value={values.province}
-              onChange={handleChange('province')}
-              label="Province"
-            >
-              <MenuItem value="British Columbia">British Columbia</MenuItem>
-              <MenuItem value="Ontario">Ontario</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl variant="outlined">
-            <InputLabel id="city">City</InputLabel>
-            <Select labelId="city" id="city" value={values.city} onChange={handleChange('city')} label="City">
-              <MenuItem value="Vancouver">Vancouver</MenuItem>
-              <MenuItem value="Burnaby">Burnaby</MenuItem>
-            </Select>
-          </FormControl>
-
-          <TextField label="Address" variant="outlined" value={values.address} onChange={handleChange('address')} />
-
-          <TextField
-            label="Postal Code"
-            variant="outlined"
-            value={values.postalCode}
-            onChange={handleChange('postalCode')}
+          <Dropdown
+            label="Province"
+            value={values.province}
+            handleChange={handleChange('province')}
+            options={provinces}
           />
+
+          <Dropdown label="City" value={values.city} handleChange={handleChange('city')} options={cities} />
+
+          <TextField label="Address" value={values.address} handleChange={handleChange('address')} />
+
+          <TextField label="Postal Code" value={values.postalCode} handleChange={handleChange('postalCode')} />
         </form>
 
-        <button onClick={() => setPage(2)}>Back</button>
-        <button onClick={() => signUpProcess()}>Sign Up</button>
+        <Button label="Back" onClick={() => setPage(2)} />
+        <Button label="Sign Up" onClick={() => signUpProcess()} />
       </div>
 
       <div className="imgDiv">
@@ -84,7 +72,7 @@ const SignUp3 = (props) => {
         email={values.email}
         setPage={setPage}
       />
-    </DIV>
+    </div>
   )
 }
 

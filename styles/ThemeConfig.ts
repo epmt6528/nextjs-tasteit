@@ -38,7 +38,7 @@ export const device = {
   desktopL: `(min-width: ${size.desktop})`,
 }
 
-// Global Styles
+// Global Styles (Typography)
 export const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Nexa Light';
@@ -61,20 +61,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body{
-    margin: 0;
-    max-width: 100vw;
-    overflow-x: hidden;
     color: ${colorPallete.darkParple}
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  ul{
-    list-style: none;
   }
 
   ${'' /* Headings */}

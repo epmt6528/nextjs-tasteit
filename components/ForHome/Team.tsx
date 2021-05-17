@@ -1,44 +1,6 @@
-import Image from 'next/image'
-
-import { DIV, CARDDIV } from './TeamStyled'
-
-const MemberCard = (props) => {
-  const { picturePath, fullName, position, linkedinURL, behanceURL, githubURL } = props
-  return (
-    <CARDDIV>
-      <Image src={picturePath} alt={fullName} width={306} height={276} objectFit="cover" />
-      <h3>{fullName}</h3>
-      <p>{position}</p>
-      <ul>
-        <li>
-          <a href={linkedinURL} target="_blank" rel="noopener noreferrer">
-            <img src={`/img/ForHome/linkedin.svg`} alt="linkedin" width="24" height="24" />
-          </a>
-        </li>
-
-        {behanceURL ? (
-          <li>
-            <a href={behanceURL} target="_blank" rel="noopener noreferrer">
-              <img src={`/img/ForHome/behance.svg`} alt="behance" width="24" height="24" />
-            </a>
-          </li>
-        ) : (
-          ''
-        )}
-
-        {githubURL ? (
-          <li>
-            <a href={githubURL} target="_blank" rel="noopener noreferrer">
-              <img src={`/img/ForHome/github.svg`} alt="github" width="24" height="24" />
-            </a>
-          </li>
-        ) : (
-          ''
-        )}
-      </ul>
-    </CARDDIV>
-  )
-}
+import styled from 'styled-components'
+import { globalValues } from '../../styles/ThemeConfig'
+import MemberCard from './MemberCard'
 
 const Team = () => {
   return (
@@ -133,5 +95,13 @@ const Team = () => {
     </DIV>
   )
 }
+
+const DIV = styled.div`
+  padding: 96px ${globalValues.edgePaddingMobile};
+
+  h1 {
+    margin-bottom: 15px;
+  }
+`
 
 export default Team

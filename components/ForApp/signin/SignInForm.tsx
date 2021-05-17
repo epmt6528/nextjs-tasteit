@@ -1,18 +1,13 @@
 import { useRouter } from 'next/router'
+import { Auth } from 'aws-amplify'
 
-// materialUI
-import TextField from '@material-ui/core/TextField'
-import FormControl from '@material-ui/core/FormControl'
-import InputLabel from '@material-ui/core/InputLabel'
-import OutlinedInput from '@material-ui/core/OutlinedInput'
-import IconButton from '@material-ui/core/IconButton'
-import Visibility from '@material-ui/icons/Visibility'
-import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import InputAdornment from '@material-ui/core/InputAdornment'
+import { TextField, PasswordTextField, Button } from '../../UIkits'
 
-import { signIn } from '../../../pages/api/authentication'
+import { useDispatch } from 'react-redux'
+import { userSlice } from '../../../store/user'
 
 const SignInForm = (props) => {
+  const dispatch = useDispatch()
   const router = useRouter()
   const { values, setValues } = props
 
@@ -20,59 +15,31 @@ const SignInForm = (props) => {
     setValues({ ...values, [prop]: event.target.value })
   }
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword })
-  }
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault()
-  }
-
   const signInProcess = async (event) => {
     event.preventDefault()
-
-    await signIn(values.email, values.password).then((res) => {
-      switch (res) {
-        case 'Success':
-          router.push('/dashboard')
-          break
-        case 'Fail':
-          alert('Wrong password or email')
-          break
-        default:
-          alert('There was an error. Try again.')
-      }
-    })
+    await Auth.signIn(values.email, values.password)
+      .then((res) => {
+        dispatch(
+          userSlice.actions.updateUser({
+            restaurantName: res.attributes['custom:restaurantName'],
+            email: res.attributes.email,
+            token: 'token',
+          })
+        )
+        router.push('/dashboard')
+      })
+      .catch(() => {
+        alert('Wrong password or email')
+      })
   }
 
   return (
     <form>
-      <TextField label="Email" variant="outlined" value={values.email} onChange={handleChange('email')} />
+      <TextField label="Email" value={values.email} handleChange={handleChange('email')} />
 
-      <FormControl variant="outlined">
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <OutlinedInput
-          id="password"
-          type={values.showPassword ? 'text' : 'password'}
-          value={values.password}
-          onChange={handleChange('password')}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleClickShowPassword}
-                onMouseDown={handleMouseDownPassword}
-                edge="end"
-              >
-                {values.showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
-          }
-          labelWidth={70}
-        />
-      </FormControl>
+      <PasswordTextField inputLabel="Password" value={values.password} handleChange={handleChange('password')} />
 
-      <button onClick={signInProcess}>Sign In</button>
+      <Button label="Sign In" onClick={signInProcess} />
     </form>
   )
 }

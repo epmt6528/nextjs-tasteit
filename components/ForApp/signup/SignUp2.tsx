@@ -1,15 +1,11 @@
 import Image from 'next/image'
-
-import { DIV } from './SignUpStyled'
-
-// materialUI
-import TextField from '@material-ui/core/TextField'
+import { Button, TextField } from '../../UIkits'
 
 const SignUp2 = (props) => {
   const { values, handleChange, setPage } = props
 
   return (
-    <DIV className="secondPage">
+    <div className="secondPage">
       <div className="bodyDiv">
         <div className="textDiv">
           <h1>Tell us about your restaurant.</h1>
@@ -19,30 +15,23 @@ const SignUp2 = (props) => {
         <form>
           <TextField
             label="Restaurant Name"
-            variant="outlined"
             value={values.restaurantName}
-            onChange={handleChange('restaurantName')}
+            handleChange={handleChange('restaurantName')}
           />
 
-          <TextField
-            label="Phone Number"
-            variant="outlined"
-            value={values.phoneNumber}
-            onChange={handleChange('phoneNumber')}
-          />
+          <TextField label="Phone Number" value={values.phoneNumber} handleChange={handleChange('phoneNumber')} />
 
           <TextField
             label="Restaurant Description"
-            variant="outlined"
+            value={values.restaurantDescription}
+            handleChange={handleChange('restaurantDescription')}
             multiline
             rows={5}
-            value={values.restaurantDescription}
-            onChange={handleChange('restaurantDescription')}
           />
         </form>
 
-        <button onClick={() => setPage(1)}>Back</button>
-        <button onClick={() => setPage(3)}>Next</button>
+        <Button label="Back" onClick={() => setPage(1)} />
+        <Button label="Next" onClick={() => setPage(3)} />
       </div>
 
       <div className="imgDiv">
@@ -53,7 +42,7 @@ const SignUp2 = (props) => {
           height={218}
         />
       </div>
-    </DIV>
+    </div>
   )
 }
 

@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { DIV } from './SignUpStyled'
 
 const Welcome = (props) => {
   const { values } = props
 
   return (
-    <DIV>
+    <div>
       <div className="bodyDiv">
         <Image src="/v1620757971/AppGraphics/welcomeMobileView_hvynoz.png" alt="Toast" width={347} height={359} />
 
@@ -26,7 +25,7 @@ const Welcome = (props) => {
           </a>
         </Link>
       </div>
-    </DIV>
+    </div>
   )
 }
 

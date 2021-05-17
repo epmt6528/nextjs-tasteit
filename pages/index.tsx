@@ -1,6 +1,7 @@
+import React from 'react'
 import { Header, Top, HowItWorks, Features, Team, Proposal, Footer } from '../components/ForHome'
 
-export default function Home() {
+const Home = () => {
   return (
     <div>
       <Header />
@@ -13,3 +14,4 @@ export default function Home() {
     </div>
   )
 }
+export default Home
