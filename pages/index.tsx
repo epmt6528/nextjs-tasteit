@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Top, HowItWorks, Features, Team, Proposal, Footer } from '../components/ForHome'
 
-const Home = () => {
+const Home = (): JSX.Element => {
   return (
     <div>
       <Header />

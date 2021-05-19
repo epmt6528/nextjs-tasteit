@@ -4,16 +4,36 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { globalValues, colorPallete } from '../styles/ThemeConfig'
 import { SignInForm } from '../components/ForApp/signin'
+import { Auth } from 'aws-amplify'
+import { useRouter } from 'next/router'
+import Loading from '../components/UIkits/Loading'
+import ResetPasswordModal from '../components/ForApp/signin/ResetPasswordModal'
 
-const Login = () => {
+const Login = (): JSX.Element => {
+  const router = useRouter()
   const [values, setValues] = useState({
     email: '',
     password: '',
     showPassword: false,
   })
 
-  return (
+  const [isLoading, setIsLoading] = useState(true)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  // Auth returning user
+  Auth.currentAuthenticatedUser()
+    .then(() => {
+      router.push('/dashboard')
+    })
+    .catch(() => {
+      setIsLoading(false)
+    })
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <DIV>
+      {' '}
       <div className="logoDiv">
         <Link href="/">
           <a>
@@ -21,14 +41,12 @@ const Login = () => {
           </a>
         </Link>
       </div>
-
       <Image
         src="/v1620757971/AppGraphics/login_wndmoo.jpg"
         alt="Tasty sushi with miso soup and drink"
         width={375}
         height={431}
       />
-
       <div className="bodyDiv">
         <div className="textDiv">
           <h1>Take your restaurant to the next level.</h1>
@@ -38,12 +56,17 @@ const Login = () => {
         <SignInForm values={values} setValues={setValues} />
 
         <h3 className="signUpCTA">
+          <a onClick={() => setModalIsOpen(true)}>Forgot password</a>
+        </h3>
+
+        <h3 className="signUpCTA">
           Not in partner with Taste It?{' '}
           <Link href="/signup">
             <a>Sign up now</a>
           </Link>
         </h3>
       </div>
+      <ResetPasswordModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
     </DIV>
   )
 }

@@ -4,7 +4,7 @@ import { colorPallete } from '../../styles/ThemeConfig'
 
 type Props = {
   label: string
-  onClick
+  onClick?
 }
 
 const ButtonStyled = (props: Props) => {
@@ -29,6 +29,12 @@ const DIV = styled.div`
     padding: 19px 64px;
     color: ${colorPallete.white};
     background-color: ${colorPallete.burple};
+    box-shadow: none;
+
+    & :hover {
+      background-color: ${colorPallete.burple};
+      box-shadow: 0 0 25px 0 rgba(111, 50, 249, 0.5);
+    }
   }
 `
 
