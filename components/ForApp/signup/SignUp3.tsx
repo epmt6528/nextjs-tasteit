@@ -12,9 +12,9 @@ const SignUp3 = (props) => {
   const signUpProcess = async () => {
     await Auth.signUp({
       username: email,
-      email: email,
       password: password,
       attributes: {
+        'custom:email': email,
         'custom:restaurantName': restaurantName,
         'custom:phoneNumber': 0,
         'custom:description': description,
