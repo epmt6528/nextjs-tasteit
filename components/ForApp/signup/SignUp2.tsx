@@ -23,9 +23,8 @@ const SignUp2 = (props) => {
 
           <TextField
             label="Restaurant Description"
-            value={values.restaurantDescription}
-            handleChange={handleChange('restaurantDescription')}
-            multiline
+            value={values.description}
+            handleChange={handleChange('description')}
             rows={5}
           />
         </form>

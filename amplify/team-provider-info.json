@@ -44,6 +44,12 @@
           "appId": "d37gofte92dgps",
           "type": "cicd"
         }
+      },
+      "function": {
+        "tasteIt": {
+          "deploymentBucketName": "amplify-tasteit-develop-140045-deployment",
+          "s3Key": "amplify-builds/tasteIt-6d5847304c415a715945-build.zip"
+        }
       }
     }
   }

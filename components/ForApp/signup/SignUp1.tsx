@@ -28,10 +28,10 @@ const SignUp1 = (props) => {
         <form>
           <TextField label="Email" value={values.email} handleChange={handleChange('email')} />
 
-          <PasswordTextField inputLabel="Password" value={values.password} handleChange={handleChange('password')} />
+          <PasswordTextField label="Password" value={values.password} handleChange={handleChange('password')} />
 
           <PasswordTextField
-            inputLabel="Confirm Password"
+            label="Confirm Password"
             value={values.confirmPassword}
             handleChange={handleChange('confirmPassword')}
           />

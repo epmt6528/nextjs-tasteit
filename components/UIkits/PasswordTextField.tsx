@@ -10,13 +10,13 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import InputAdornment from '@material-ui/core/InputAdornment'
 
 type Props = {
-  inputLabel: string
+  label: string
   value: string
   handleChange
 }
 
 const PasswordTextField = (props: Props) => {
-  const { inputLabel, value, handleChange } = props
+  const { label, value, handleChange } = props
 
   const [showPassword, setShowPassword] = useState(false)
 
@@ -27,10 +27,9 @@ const PasswordTextField = (props: Props) => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault()
   }
-
   return (
     <FormControl variant="outlined">
-      <InputLabel htmlFor="password">{inputLabel}</InputLabel>
+      <InputLabel htmlFor="password">{label}</InputLabel>
       <OutlinedInput
         id="password"
         type={showPassword ? 'text' : 'password'}

@@ -1,0 +1,42 @@
+{
+  "paths": [
+    {
+      "name": "/contact",
+      "lambdaFunction": "tasteIt",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/contact"
+    }
+  ],
+  "resourceName": "tasteIt",
+  "apiName": "tasteIt",
+  "functionArns": [
+    {
+      "lambdaFunction": "tasteIt"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-tasteit-develop-140045-authRole",
+    "unAuthRoleName": "amplify-tasteit-develop-140045-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "tasteIt",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

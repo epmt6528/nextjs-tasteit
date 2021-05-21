@@ -9,10 +9,11 @@ type Props = {
   value: string
   handleChange
   options: string[]
+  abdornment?: string
 }
 
 const Dropdown = (props: Props) => {
-  const { label, value, handleChange, options } = props
+  const { label, value, handleChange, options, abdornment } = props
 
   return (
     <FormControl variant="outlined">

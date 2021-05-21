@@ -3,11 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'
 import { globalValues, colorPallete } from '../styles/ThemeConfig'
-import { SignInForm } from '../components/ForApp/signin'
+import { SignInForm, ResetPasswordModal } from '../components/ForApp/signin'
+import Loading from '../components/UIkits/Loading'
 import { Auth } from 'aws-amplify'
 import { useRouter } from 'next/router'
-import Loading from '../components/UIkits/Loading'
-import ResetPasswordModal from '../components/ForApp/signin/ResetPasswordModal'
 
 const Login = (): JSX.Element => {
   const router = useRouter()

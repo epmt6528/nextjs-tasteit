@@ -15,6 +15,7 @@ const Signup = () => {
     city: '',
     address: '',
     postalCode: '',
+    description: '',
   })
 
   const [page, setPage] = useState(1)

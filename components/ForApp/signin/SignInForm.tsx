@@ -22,8 +22,13 @@ const SignInForm = (props) => {
         dispatch(
           userSlice.actions.updateUser({
             restaurantName: res.attributes['custom:restaurantName'],
+            phone: res.attributes['custom:phone'],
             email: res.attributes.email,
-            token: 'token',
+            province: res.attributes['custom:province'],
+            city: res.attributes['custom:city'],
+            address: res.attributes['custom:address'],
+            postalCode: res.attributes['custom:postalCode'],
+            description: res.attributes['custom:description'],
           })
         )
         router.push('/dashboard')
@@ -37,7 +42,7 @@ const SignInForm = (props) => {
     <form>
       <TextField label="Email" value={values.email} handleChange={handleChange('email')} />
 
-      <PasswordTextField inputLabel="Password" value={values.password} handleChange={handleChange('password')} />
+      <PasswordTextField label="Password" value={values.password} handleChange={handleChange('password')} />
 
       <Button label="Sign In" onClick={signInProcess} />
     </form>

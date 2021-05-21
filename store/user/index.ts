@@ -3,7 +3,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 export type User = {
   restaurantName: string | null
   email: string | null
-  token: string | null
+  phone: string | null
+  province: string | null
+  city: string | null
+  address: string | null
+  postalCode: string | null
+  description: string | null
 }
 
 export type UserState = {
@@ -17,7 +22,12 @@ const initialState: UserState = {
   user: {
     restaurantName: null,
     email: null,
-    token: null,
+    phone: null,
+    province: null,
+    city: null,
+    address: null,
+    postalCode: null,
+    description: null,
   },
 }
 

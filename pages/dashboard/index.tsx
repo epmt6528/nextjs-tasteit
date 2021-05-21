@@ -1,14 +1,9 @@
 import { GetServerSideProps } from 'next'
 import { withSSRContext } from 'aws-amplify'
-import { Header, PageTitle } from '../../components/ForApp/dashboard'
+import DashboardWrap from '../../components/ForApp/dashboard/DashboardWrap'
 
 const Dashboard = (): JSX.Element => {
-  return (
-    <div>
-      <Header />
-      <PageTitle comment="Welcome back! 👋🏻" pageTitle="Active Orders" />
-    </div>
-  )
+  return <DashboardWrap comment="Welcome back! 👋🏻" pageTitle="Active Orders"></DashboardWrap>
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
