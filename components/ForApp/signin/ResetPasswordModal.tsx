@@ -59,7 +59,7 @@ const ResetPasswordModal = (props) => {
             handleChange={handleChange('verificationCode')}
           />
           <PasswordTextField
-            inputLabel="New Password"
+            label="New Password"
             value={values.newPassword}
             handleChange={handleChange('newPassword')}
           />
