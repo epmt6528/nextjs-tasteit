@@ -52,13 +52,7 @@ const Contact = () => {
             <TextField label="Name" value={values.name} handleChange={handleChange('name')} />
             <TextField label="Phone Number" value={values.phoneNumber} handleChange={handleChange('phoneNumber')} />
             <TextField label="Email" value={values.email} handleChange={handleChange('email')} />
-            <TextField
-              label="Message"
-              value={values.message}
-              handleChange={handleChange('message')}
-              multiline
-              rows={10}
-            />
+            <TextField label="Message" value={values.message} handleChange={handleChange('message')} rows={10} />
             <Button label="Submit" onClick={submitMessage} />
           </form>
         </Wrapper>
