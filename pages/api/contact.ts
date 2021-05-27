@@ -1,26 +1,74 @@
-import Amplify, { API, withSSRContext } from 'aws-amplify'
+import Amplify from 'aws-amplify'
 import awsconfig from '../../aws-exports'
+import AWS from 'aws-sdk'
 
 Amplify.configure({ ...awsconfig, ssr: true })
 
 export default async (req, res) => {
-  const { Auth } = withSSRContext({ req })
-
+  console.log("API 'contact' is called 🍙 ")
+  // This method needs: name, phoneNumber, email, message
+  // Validation
   const values = JSON.parse(req.body)
 
-  const params = {
-    headers: {
-      'content-type': 'application/json',
-      Authorization: `Bearer ${(await Auth.currentSession()).getIdToken().getJwtToken()}`,
-    },
-    body: { name: values.name, phoneNumber: values.phoneNumber, email: values.email, message: values.message },
+  if (!values.name || !values.phoneNumber || !values.email || !values.message) {
+    res.status(400).send('More Pamaraters are Required')
+    return
   }
 
-  return await API.post('tasteIt', '/contact', params)
-    .then((data) => {
-      res.json(data.message)
-    })
-    .catch((error) => {
-      res.json(error.message)
-    })
+  const params = {
+    Destination: {
+      ToAddresses: ['epmt6528@gmail.com'],
+    },
+    Message: {
+      Body: {
+        Html: {
+          Charset: 'UTF-8',
+          Data: `<html>
+                    <head>
+                      <meta charset="utf-8">
+                    </head>
+                    <body>
+                      <h2>Thank you for reaching out to Taste It!</h2>
+                      <p>We have received your message and will be in touch as sson as possible.</p>
+                      <br/>
+                      <hr/>
+                      <h3>Name</h3><br/>
+                      <p>${values.name}</p><br/>
+                      <h3>Phone Number</h3><br/>
+                      <p>${values.phoneNumber}</p><br/>
+                      <h3>Email</h3><br/>
+                      <p>${values.email}</p><br/>
+                      <h3>Message</h3><br/>
+                      <p>${values.message}</p>
+                    </body>
+                </html>`,
+        },
+        Text: {
+          Charset: 'UTF-8',
+          Data: `Name: ${values.name} \n
+                  Phone Number:${values.phoneNumber} \n
+                  Email Address: ${values.email} \n
+                  Message: ${values.message}`,
+        },
+      },
+      Subject: {
+        Charset: 'UTF-8',
+        Data: 'Hello from Taste It',
+      },
+    },
+    Source: 'epmt6528@gmail.com',
+  }
+
+  AWS.config.update({ region: 'us-east-1' })
+  const ses = new AWS.SES()
+
+  try {
+    await ses.sendEmail(params).promise()
+    res.json({ message: 'Post call succeed!' })
+    return
+  } catch (e) {
+    console.log(e.stack)
+    res.status(500).send({ message: 'Request Faild' })
+    return
+  }
 }

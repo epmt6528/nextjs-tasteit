@@ -48,7 +48,7 @@
       "function": {
         "tasteIt": {
           "deploymentBucketName": "amplify-tasteit-develop-140045-deployment",
-          "s3Key": "amplify-builds/tasteIt-6d5847304c415a715945-build.zip"
+          "s3Key": "amplify-builds/tasteIt-6a2f5242354a4e334146-build.zip"
         }
       }
     }

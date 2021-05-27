@@ -24,6 +24,7 @@ app.use(function (req, res, next) {
 
 // Routes
 require('./routes/contactRoute')(app)
+require('./routes/menuRoute')(app)
 
 app.listen(3000, function () {
   console.log('App started 🚀')

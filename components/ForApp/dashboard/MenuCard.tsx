@@ -27,7 +27,7 @@ const MenuCard = (props: Props) => {
 
 const DIV = styled.div`
   h3 {
-    margin: 18px 0 15px;
+    margin: 18px 0;
   }
 
   p {

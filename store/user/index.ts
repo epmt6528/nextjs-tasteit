@@ -9,6 +9,7 @@ export type User = {
   address: string | null
   postalCode: string | null
   description: string | null
+  sub: string | null
 }
 
 export type UserState = {
@@ -28,6 +29,7 @@ const initialState: UserState = {
     address: null,
     postalCode: null,
     description: null,
+    sub: null,
   },
 }
 

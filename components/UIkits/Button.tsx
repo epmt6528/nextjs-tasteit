@@ -40,7 +40,7 @@ const ButtonStyled = (props: Props) => {
 
   return (
     <DIV>
-      <Button variant="contained" onClick={onClick} startIcon={adornment ? icon : false}>
+      <Button variant="contained" onClick={onClick ? onClick : null} startIcon={adornment ? icon : false}>
         {label}
       </Button>
     </DIV>

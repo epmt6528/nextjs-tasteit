@@ -1,4 +1,5 @@
 exports.createContact = async (req, res) => {
+  console.log('API "createContact" is called 🐶')
   const AWS = require('aws-sdk')
   // This method needs: name, phoneNumber, email, message
   // Validation

@@ -29,6 +29,7 @@ const SignInForm = (props) => {
             address: res.attributes['custom:address'],
             postalCode: res.attributes['custom:postalCode'],
             description: res.attributes['custom:description'],
+            sub: res.attributes.sub,
           })
         )
         router.push('/dashboard')

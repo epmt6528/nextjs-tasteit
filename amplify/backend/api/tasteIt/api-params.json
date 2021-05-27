@@ -5,13 +5,7 @@
       "lambdaFunction": "tasteIt",
       "privacy": {
         "private": true,
-        "auth": [
-          "/POST",
-          "/GET",
-          "/PUT",
-          "/PATCH",
-          "/DELETE"
-        ]
+        "auth": ["/POST", "/GET", "/PUT", "/PATCH", "/DELETE"]
       },
       "policyResourceName": "/contact"
     }
@@ -33,10 +27,7 @@
     {
       "category": "function",
       "resourceName": "tasteIt",
-      "attributes": [
-        "Name",
-        "Arn"
-      ]
+      "attributes": ["Name", "Arn"]
     }
   ]
 }
