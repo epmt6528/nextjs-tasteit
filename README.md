@@ -11,7 +11,7 @@
 
   <p>This is a restaurant side platform using <a href="https://nextjs.org/">Next.js</a> bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app">create-next-app</a>.</p>
 
-  <img src="https://user-images.githubusercontent.com/53918541/113095019-94fb5f80-91a7-11eb-9ded-7111d8946e11.png" width="360px;"/>
+  
 
   <h2>URL</h2>
   <a href='https://tasteit.vercel.app/'>https://tasteit.vercel.app/</a>
