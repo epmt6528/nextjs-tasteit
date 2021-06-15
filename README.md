@@ -1,5 +1,6 @@
+
 <p align="center" >
-  <a href="https://next-js-buddy-go.vercel.app/"><img src="https://user-images.githubusercontent.com/53918541/112741853-ebfdfc00-8f3d-11eb-8766-730086985748.png" /></a><br />
+  <a href=""><img width="550" alt="tasteIt" src="https://user-images.githubusercontent.com/53918541/121979145-805a4c80-cd3e-11eb-8759-f4f55a612832.png"></a><br />
   
   <img src="https://user-images.githubusercontent.com/53918541/112910774-f688d480-90a8-11eb-9237-d9e0783880e9.png" width="180px;" />
 </p>
