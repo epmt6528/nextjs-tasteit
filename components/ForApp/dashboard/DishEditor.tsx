@@ -4,7 +4,7 @@ import { PreferenceTable } from '.'
 import { PreviewUploader, TextField } from '../../UIkits'
 
 const DishEditor = (props) => {
-  const { values, setValues, preferences, setPreferences } = props
+  const { values, setValues, preferences, setPreferences, setSelectedImg } = props
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value })
@@ -16,7 +16,7 @@ const DishEditor = (props) => {
 
   return (
     <DIV>
-      <PreviewUploader />
+      <PreviewUploader setSelectedImg={setSelectedImg} />
       <div className="textFieldDiv">
         <TextField label="Dish Name" value={values.dishName} handleChange={handleChange('name')} />
         <TextField label="Dish Price" value={values.dishPrice} handleChange={handleChange('price')} />

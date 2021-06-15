@@ -17,6 +17,8 @@ const Add = () => {
     imgURL: '',
   })
 
+  const [selectedImg, setSelectedImg] = useState()
+
   const [preferences, setPreferences] = useState({
     Indian: false,
     Vietnamese: false,
@@ -55,13 +57,31 @@ const Add = () => {
     // })
     console.log(values)
     console.log(preferences)
+    const formData = new FormData()
+    formData.append('image', selectedImg)
+
+    fetch('/api/cloudinary/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      console.log(res)
+    })
   }
 
   return (
     <DashboardWrap comment="Let's customize your menu now. ✍️" pageTitle="Add New Dish">
       <Wrapper>
         <DIV>
-          <DishEditor values={values} setValues={setValues} preferences={preferences} setPreferences={setPreferences} />
+          <DishEditor
+            values={values}
+            setValues={setValues}
+            preferences={preferences}
+            setPreferences={setPreferences}
+            setSelectedImg={setSelectedImg}
+          />
           <Button label="Add New Dish" onClick={addNewDish} />
         </DIV>
       </Wrapper>

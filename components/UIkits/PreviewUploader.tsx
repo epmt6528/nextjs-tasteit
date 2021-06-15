@@ -5,18 +5,21 @@ import { Button } from '.'
 import { colorPallete } from '../../styles/ThemeConfig'
 
 const PreviewUploader = (props) => {
+  const { setSelectedImg } = props
   const [preview, setPreview] = useState(null)
 
   const handlePreviewChange = (event) => {
     const file = event.target.files[0]
     if (file) {
       setPreview(window.URL.createObjectURL(file))
+      setSelectedImg(event.target.files[0])
     }
     event.target.value = null
   }
 
   const deletePreview = (e) => {
     setPreview(null)
+    setSelectedImg(null)
   }
 
   return (
